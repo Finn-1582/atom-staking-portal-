@@ -12,7 +12,7 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="demo-banner"><span class="demo-dot"></span> DEMO PROTOTYPE · Values are illustrative, not proof of an actual stake or account balance</div>
+  <div class="account-notice">Account figures and staking status should be confirmed against the official on-chain record.</div>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <a class="brand" href="#" aria-label="ATOM staking home"><span class="atom-mark">⚛</span><span>cosmos<span class="brand-muted">.stake</span></span></a>
@@ -24,8 +24,8 @@
         <a class="nav-link" href="#activity"><span>↗</span> Activity</a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="help-card"><span class="help-icon">?</span><strong>Need a hand?</strong><p>This prototype does not connect to a wallet or move funds.</p><a href="#notes">Read demo notes ↗</a></div>
-        <div class="profile"><div class="avatar">MF</div><div><strong>Mr Finn</strong><small>Preview account</small></div><button id="signOut" class="icon-button" title="Return to overview" aria-label="Return to overview">↪</button></div>
+        <div class="help-card"><span class="help-icon">?</span><strong>Need a hand?</strong><p>This interface does not connect to a wallet or move funds.</p><a href="#notes">Read account notes ↗</a></div>
+        <div class="profile"><div class="avatar">MF</div><div><strong>Mr Finn</strong><small>Account overview</small></div><button id="signOut" class="icon-button" title="Return to overview" aria-label="Return to overview">↪</button></div>
       </div>
     </aside>
 
@@ -33,7 +33,7 @@
       <header class="topbar">
         <button id="menuToggle" class="icon-button menu-toggle" aria-label="Toggle navigation">☰</button>
         <div class="breadcrumb">Accounts <span>/</span> <strong>ATOM staking</strong></div>
-        <div class="topbar-right"><span class="status-chip"><span class="network-dot"></span> Preview mode</span><button class="user-chip" id="profileButton"><span class="avatar small">MF</span><span>Mr Finn</span><span>⌄</span></button></div>
+        <div class="topbar-right"><span class="status-chip"><span class="network-dot"></span> Account mode</span><button class="user-chip" id="profileButton"><span class="avatar small">MF</span><span>Mr Finn</span><span>⌄</span></button></div>
       </header>
 
       <section class="page-heading" id="overview">
@@ -44,11 +44,11 @@
       <section class="hero-card">
         <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
         <div class="hero-content">
-          <div class="hero-label"><span class="atom-mark small-mark">⚛</span> TOTAL PLAN ALLOCATION <span class="info-dot" title="Illustrative amount for this prototype">i</span></div>
+          <div class="hero-label"><span class="atom-mark small-mark">⚛</span> TOTAL PLAN ALLOCATION <span class="info-dot" title="Plan allocation amount">i</span></div>
           <div class="hero-value" id="allocationValue">£68,000.00</div>
           <div class="hero-meta"><span class="live-dot"></span> GBP-denominated plan <span class="meta-divider">·</span> <span id="atomEquivalent">Calculating ATOM equivalent…</span></div>
           <div class="hero-divider"></div>
-          <div class="hero-bottom"><div><small>Annual APR (illustrative)</small><strong>21.09%</strong></div><div><small>Planned duration</small><strong>15 days</strong></div><div><small>Unstaking window</small><strong>9 days</strong></div></div>
+          <div class="hero-bottom"><div><small>Annual APR</small><strong>21.09%</strong></div><div><small>Planned duration</small><strong>15 days</strong></div><div><small>Unstaking window</small><strong>9 days</strong></div></div>
         </div>
         <div class="hero-coin" aria-hidden="true"><span>⚛</span></div>
       </section>
@@ -68,7 +68,7 @@
             <div class="timeline-item"><div class="timeline-symbol blue-bg">02</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Unstaking window</strong><span class="phase-tag muted-tag" id="unstakePhase">Upcoming</span></div><p>31 Oct 2026 – 8 Nov 2026</p><small id="unstakeStatus">Begins after the planned staking period</small></div></div>
           </div>
           <div class="countdown-card"><div class="countdown-head"><div><span class="countdown-kicker" id="countdownKicker">NEXT MILESTONE</span><h3 id="countdownTitle">Time until staking starts</h3></div><span class="clock-icon">◷</span></div><div class="countdown" id="countdown"><div><strong>--</strong><small>Days</small></div><i>:</i><div><strong>--</strong><small>Hours</small></div><i>:</i><div><strong>--</strong><small>Minutes</small></div><i>:</i><div><strong>--</strong><small>Seconds</small></div></div><p id="countdownFoot">Countdown uses the visitor's local device clock.</p></div>
-          <div class="policy-note"><span class="policy-icon">!</span><div><strong>Stated unstaking policy</strong><p>If unstaking is not completed before the nine-day window expires, the stated terms describe a half-stake trigger. This prototype does not execute or verify any penalty; consult the actual agreement and on-chain implementation.</p></div></div>
+          <div class="policy-note"><span class="policy-icon">!</span><div><strong>Stated unstaking policy</strong><p>If unstaking is not completed before the nine-day window expires, the stated terms describe a half-stake trigger. This interface does not execute or verify any penalty; consult the actual agreement and on-chain implementation.</p></div></div>
         </article>
 
         <article class="panel market-panel" id="market">
@@ -82,7 +82,7 @@
       </section>
 
       <section class="panel activity-panel" id="activity">
-        <div class="panel-heading"><div><p class="eyebrow">ACCOUNT LOG</p><h2>Plan activity</h2></div><span class="tag">Illustrative</span></div>
+        <div class="panel-heading"><div><p class="eyebrow">ACCOUNT LOG</p><h2>Plan activity</h2></div><span class="tag">Plan record</span></div>
         <div class="activity-row"><div class="activity-symbol purple-bg">◷</div><div class="activity-copy"><strong>Staking schedule configured</strong><small>15-day planned period · starts 15 Oct 2026</small></div><span class="activity-state">Scheduled</span></div>
         <div class="activity-row"><div class="activity-symbol blue-bg">↻</div><div class="activity-copy"><strong>Unstaking window planned</strong><small>9-day window after staking period</small></div><span class="activity-state neutral-state">Upcoming</span></div>
         <div class="activity-row"><div class="activity-symbol cyan-bg">⚛</div><div class="activity-copy"><strong>Market price connection</strong><small id="activityPriceStatus">Waiting for live public market data</small></div><span class="activity-state neutral-state">Market only</span></div>
@@ -100,7 +100,7 @@
         <p id="copyFeedback" aria-live="polite" style="color:#75dfb0;font-size:10px"></p>
       </section>
 
-      <footer id="notes"><div class="footer-brand"><span class="atom-mark">⚛</span> cosmos.stake</div><p>Demonstration interface only. It does not connect to a wallet, validate a real staking position, custody funds, or enforce staking terms. Do not use these figures as proof of investment, account ownership or a financial obligation.</p><span>© 2026 · ATOM staking prototype</span></footer>
+      <footer id="notes"><div class="footer-brand"><span class="atom-mark">⚛</span> cosmos.stake</div><p>This interface does not connect to a wallet, validate an on-chain staking position, custody funds, or enforce staking terms. Estimated figures are not proof of account ownership, investment, or a financial obligation.</p><span>© 2026 · ATOM staking account</span></footer>
     </main>
   </div>
 </body>
