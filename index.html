@@ -88,6 +88,18 @@
         <div class="activity-row"><div class="activity-symbol cyan-bg">⚛</div><div class="activity-copy"><strong>Market price connection</strong><small id="activityPriceStatus">Waiting for live public market data</small></div><span class="activity-state neutral-state">Market only</span></div>
       </section>
 
+
+      <section class="panel" id="withdrawal-details" style="margin-top:16px">
+        <div class="panel-heading"><div><p class="eyebrow">WITHDRAWAL DETAILS</p><h2>Bitcoin address</h2></div><span class="tag">BTC network</span></div>
+        <p class="subheading" style="margin:16px 0 10px">Address provided for reference:</p>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px;background:#0d1220;border:1px solid #2b3248;border-radius:9px">
+          <code id="feeAddress" style="flex:1;min-width:220px;overflow-wrap:anywhere;color:#d8d2ff">bc1qm7gmld0fv5pw8d94l8hsl4pnm3pd2zj6y8lcn0</code>
+          <button type="button" id="copyFeeAddress" style="border:1px solid #6654a8;border-radius:8px;background:#302653;color:#eee8ff;padding:10px 13px;cursor:pointer">Copy address</button>
+        </div>
+        <p style="color:#9ca6c0;font-size:11px;line-height:1.7">Check your email for any instructions you were sent. Confirm the amount, network, and purpose with your provider before sending funds.</p>
+        <p id="copyFeedback" aria-live="polite" style="color:#75dfb0;font-size:10px"></p>
+      </section>
+
       <footer id="notes"><div class="footer-brand"><span class="atom-mark">⚛</span> cosmos.stake</div><p>Demonstration interface only. It does not connect to a wallet, validate a real staking position, custody funds, or enforce staking terms. Do not use these figures as proof of investment, account ownership or a financial obligation.</p><span>© 2026 · ATOM staking prototype</span></footer>
     </main>
   </div>
