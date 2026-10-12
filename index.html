@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b14">
+  <title>ATOM Staking | Account Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="demo-banner"><span class="demo-dot"></span> DEMO PROTOTYPE · Values are illustrative, not proof of an actual stake or account balance</div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ATOM staking home"><span class="atom-mark">⚛</span><span>cosmos<span class="brand-muted">.stake</span></span></a>
+      <div class="network-pill"><span class="network-dot"></span> Cosmos Hub <span class="chevron">⌄</span></div>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview"><span>◫</span> Overview</a>
+        <a class="nav-link" href="#staking"><span>◈</span> Staking plan</a>
+        <a class="nav-link" href="#market"><span>⌁</span> Market</a>
+        <a class="nav-link" href="#activity"><span>↗</span> Activity</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon">?</span><strong>Need a hand?</strong><p>This prototype does not connect to a wallet or move funds.</p><a href="#notes">Read demo notes ↗</a></div>
+        <div class="profile"><div class="avatar">MF</div><div><strong>Mr Finn</strong><small>Preview account</small></div><button id="signOut" class="icon-button" title="Return to overview" aria-label="Return to overview">↪</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-button menu-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Accounts <span>/</span> <strong>ATOM staking</strong></div>
+        <div class="topbar-right"><span class="status-chip"><span class="network-dot"></span> Preview mode</span><button class="user-chip" id="profileButton"><span class="avatar small">MF</span><span>Mr Finn</span><span>⌄</span></button></div>
+      </header>
+
+      <section class="page-heading" id="overview">
+        <div><p class="eyebrow">ACCOUNT OVERVIEW</p><h1>ATOM staking overview</h1><p class="subheading">Your plan, estimated rewards and Cosmos market data in one place.</p></div>
+        <div class="date-chip"><span>◷</span> <span id="todayLabel">Updating date…</span></div>
+      </section>
+
+      <section class="hero-card">
+        <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+        <div class="hero-content">
+          <div class="hero-label"><span class="atom-mark small-mark">⚛</span> TOTAL PLAN ALLOCATION <span class="info-dot" title="Illustrative amount for this prototype">i</span></div>
+          <div class="hero-value" id="allocationValue">£68,000.00</div>
+          <div class="hero-meta"><span class="live-dot"></span> GBP-denominated plan <span class="meta-divider">·</span> <span id="atomEquivalent">Calculating ATOM equivalent…</span></div>
+          <div class="hero-divider"></div>
+          <div class="hero-bottom"><div><small>Annual APR (illustrative)</small><strong>21.09%</strong></div><div><small>Planned duration</small><strong>15 days</strong></div><div><small>Unstaking window</small><strong>9 days</strong></div></div>
+        </div>
+        <div class="hero-coin" aria-hidden="true"><span>⚛</span></div>
+      </section>
+
+      <section class="metric-grid" aria-label="Plan metrics">
+        <article class="metric-card"><div class="metric-top"><span>Estimated reward</span><span class="metric-icon purple">↗</span></div><strong id="rewardValue">£589.36</strong><small>15 days · simple APR estimate</small><div class="metric-foot positive">Based on 365-day year</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Estimated total</span><span class="metric-icon blue">◈</span></div><strong id="totalValue">£68,589.36</strong><small>Allocation + estimated reward</small><div class="metric-foot">Not a verified balance</div></article>
+        <article class="metric-card"><div class="metric-top"><span>ATOM / GBP</span><span class="metric-icon cyan">⚛</span></div><strong id="atomPrice">Loading…</strong><small id="priceChange">Fetching market data</small><div class="metric-foot" id="priceUpdated">Waiting for price feed</div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel plan-panel" id="staking">
+          <div class="panel-heading"><div><p class="eyebrow">YOUR SCHEDULE</p><h2>Staking timeline</h2></div><span class="tag">15 + 9 days</span></div>
+          <div class="timeline">
+            <div class="timeline-item"><div class="timeline-symbol purple-bg">01</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Staking period</strong><span class="phase-tag" id="stakePhase">Scheduled</span></div><p>15 Oct 2026 – 30 Oct 2026</p><small id="stakeStatus">Countdown to staking start</small></div></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-item"><div class="timeline-symbol blue-bg">02</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Unstaking window</strong><span class="phase-tag muted-tag" id="unstakePhase">Upcoming</span></div><p>31 Oct 2026 – 8 Nov 2026</p><small id="unstakeStatus">Begins after the planned staking period</small></div></div>
+          </div>
+          <div class="countdown-card"><div class="countdown-head"><div><span class="countdown-kicker" id="countdownKicker">NEXT MILESTONE</span><h3 id="countdownTitle">Time until staking starts</h3></div><span class="clock-icon">◷</span></div><div class="countdown" id="countdown"><div><strong>--</strong><small>Days</small></div><i>:</i><div><strong>--</strong><small>Hours</small></div><i>:</i><div><strong>--</strong><small>Minutes</small></div><i>:</i><div><strong>--</strong><small>Seconds</small></div></div><p id="countdownFoot">Countdown uses the visitor's local device clock.</p></div>
+          <div class="policy-note"><span class="policy-icon">!</span><div><strong>Stated unstaking policy</strong><p>If unstaking is not completed before the nine-day window expires, the stated terms describe a half-stake trigger. This prototype does not execute or verify any penalty; consult the actual agreement and on-chain implementation.</p></div></div>
+        </article>
+
+        <article class="panel market-panel" id="market">
+          <div class="panel-heading"><div><p class="eyebrow">COSMOS HUB</p><h2>ATOM market</h2></div><span class="live-label"><span class="live-dot"></span> Price feed</span></div>
+          <div class="market-price-row"><div><strong id="marketPrice">Loading…</strong><small>ATOM / GBP</small></div><div id="marketChangeBadge" class="change-badge">—</div></div>
+          <div class="chart-wrap"><div class="chart-y-labels"><span>High</span><span>Price</span><span>Low</span></div><canvas id="priceChart" aria-label="ATOM price chart" role="img"></canvas><div id="chartMessage" class="chart-message">Loading recent market history…</div></div>
+          <div class="chart-footer"><span>Recent 7-day trend</span><span id="chartRange">Waiting for data</span></div>
+          <div class="market-stats"><div><small>24h high</small><strong id="high24">—</strong></div><div><small>24h low</small><strong id="low24">—</strong></div><div><small>Market</small><strong>Cosmos Hub</strong></div></div>
+          <p class="source-note">Market data supplied by CoinGecko when available. Prices may be delayed and can differ between providers.</p>
+        </article>
+      </section>
+
+      <section class="panel activity-panel" id="activity">
+        <div class="panel-heading"><div><p class="eyebrow">ACCOUNT LOG</p><h2>Plan activity</h2></div><span class="tag">Illustrative</span></div>
+        <div class="activity-row"><div class="activity-symbol purple-bg">◷</div><div class="activity-copy"><strong>Staking schedule configured</strong><small>15-day planned period · starts 15 Oct 2026</small></div><span class="activity-state">Scheduled</span></div>
+        <div class="activity-row"><div class="activity-symbol blue-bg">↻</div><div class="activity-copy"><strong>Unstaking window planned</strong><small>9-day window after staking period</small></div><span class="activity-state neutral-state">Upcoming</span></div>
+        <div class="activity-row"><div class="activity-symbol cyan-bg">⚛</div><div class="activity-copy"><strong>Market price connection</strong><small id="activityPriceStatus">Waiting for live public market data</small></div><span class="activity-state neutral-state">Market only</span></div>
+      </section>
+
+      <footer id="notes"><div class="footer-brand"><span class="atom-mark">⚛</span> cosmos.stake</div><p>Demonstration interface only. It does not connect to a wallet, validate a real staking position, custody funds, or enforce staking terms. Do not use these figures as proof of investment, account ownership or a financial obligation.</p><span>© 2026 · ATOM staking prototype</span></footer>
+    </main>
+  </div>
+</body>
+</html>
