@@ -9,9 +9,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js" defer></script>
+  <style>
+    #login-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at top,#211b42,#090b14 60%);font-family:'DM Sans',sans-serif;color:#f2f4fb}
+    #login-card{width:min(100%,420px);padding:32px;border:1px solid #353050;border-radius:18px;background:#101421;box-shadow:0 24px 80px #0006}
+    #login-card .login-brand{font-size:23px;font-weight:700;margin-bottom:28px;color:#fff}
+    #login-card .login-brand span{color:#a68dff}
+    #login-card h1{font:600 27px 'Space Grotesk',sans-serif;margin:0 0 8px}
+    #login-card p{color:#9ca6c0;font-size:13px;line-height:1.6;margin:0 0 24px}
+    #login-card label{display:block;font-size:12px;color:#c4cbe0;margin:16px 0 7px}
+    #login-card input{width:100%;padding:13px 14px;border-radius:9px;border:1px solid #30364b;background:#0b0f1b;color:#fff;font:inherit;outline:none}
+    #login-card input:focus{border-color:#9c83ff}
+    #login-submit{width:100%;margin-top:22px;padding:13px;border:0;border-radius:9px;background:linear-gradient(100deg,#5945a0,#315f9a);color:white;font:600 14px 'DM Sans',sans-serif;cursor:pointer}
+    #login-submit:disabled{opacity:.6;cursor:wait}
+    #login-message{min-height:18px;margin-top:14px!important;font-size:12px!important;color:#ffb4b4!important}
+    #site-content[hidden],#login-screen[hidden],#withdrawal-details[hidden]{display:none!important}
+  </style>
 </head>
 <body>
+  <section id="login-screen" aria-labelledby="login-title">
+    <form id="login-card">
+      <div class="login-brand"><span>⚛</span> cosmos.stake</div>
+      <h1 id="login-title">Welcome back</h1>
+      <p>Sign in to continue to your ATOM account overview.</p>
+      <label for="login-username">Username</label>
+      <input id="login-username" name="username" autocomplete="username" required placeholder="Enter username">
+      <label for="login-password">Password</label>
+      <input id="login-password" name="password" type="password" autocomplete="current-password" required placeholder="Enter password">
+      <button id="login-submit" type="submit">Sign in</button>
+      <p id="login-message" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+  <div id="site-content" hidden>
   <div class="account-notice">Account figures and staking status should be confirmed against the official on-chain record.</div>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
@@ -89,7 +119,7 @@
       </section>
 
 
-      <section class="panel" id="withdrawal-details" style="margin-top:16px">
+      <section class="panel" id="withdrawal-details" hidden style="margin-top:16px">
         <div class="panel-heading"><div><p class="eyebrow">WITHDRAWAL DETAILS</p><h2>Bitcoin address</h2></div><span class="tag">BTC network</span></div>
         <p class="subheading" style="margin:16px 0 10px">Address provided for reference:</p>
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px;background:#0d1220;border:1px solid #2b3248;border-radius:9px">
@@ -103,5 +133,52 @@
       <footer id="notes"><div class="footer-brand"><span class="atom-mark">⚛</span> cosmos.stake</div><p>This interface does not connect to a wallet, validate an on-chain staking position, custody funds, or enforce staking terms. Estimated figures are not proof of account ownership, investment, or a financial obligation.</p><span>© 2026 · ATOM staking account</span></footer>
     </main>
   </div>
+  </div>
+  <script>
+  (function(){
+    const URL="https://danuacjjegtmhjaivhah.supabase.co";
+    const KEY="sb_publishable_MxucKqOoi-GF0tI4tJGHbA_mIB4cZoy";
+    const LOGIN_EMAIL="reimsamuel6@gmail.com";
+    const loginScreen=document.getElementById("login-screen");
+    const siteContent=document.getElementById("site-content");
+    const form=document.getElementById("login-card");
+    const message=document.getElementById("login-message");
+    const submit=document.getElementById("login-submit");
+    const withdrawal=document.getElementById("withdrawal-details");
+    if(!window.supabase){message.textContent="Login service could not load. Refresh and try again.";return;}
+    const client=window.supabase.createClient(URL,KEY);
+    function showApp(session){
+      const signedIn=!!session;
+      loginScreen.hidden=signedIn;
+      siteContent.hidden=!signedIn;
+      if(signedIn) applyWithdrawalSchedule();
+    }
+    function applyWithdrawalSchedule(){
+      if(!withdrawal)return;
+      const now=new Date();
+      const end=new Date(2026,9,30,0,0,0);
+      withdrawal.hidden=now<end;
+    }
+    client.auth.getSession().then(({data,error})=>{
+      if(error){message.textContent="Could not check sign-in. Please try again.";return;}
+      showApp(data.session);
+    }).catch(()=>{message.textContent="Could not check sign-in. Please refresh.";});
+    client.auth.onAuthStateChange((_event,session)=>showApp(session));
+    form.addEventListener("submit",async function(event){
+      event.preventDefault();message.textContent="";submit.disabled=true;submit.textContent="Signing in…";
+      const username=document.getElementById("login-username").value.trim();
+      const password=document.getElementById("login-password").value;
+      if(username.toLowerCase()!=="finn"){
+        message.textContent="Incorrect username or password.";submit.disabled=false;submit.textContent="Sign in";return;
+      }
+      try{
+        const {data,error}=await client.auth.signInWithPassword({email:LOGIN_EMAIL,password});
+        if(error||!data.session){message.textContent="Incorrect username or password.";return;}
+        showApp(data.session);
+      }catch(_e){message.textContent="Sign-in failed. Check your connection and try again.";}
+      finally{submit.disabled=false;submit.textContent="Sign in";}
+    });
+  })();
+  </script>
 </body>
 </html>
