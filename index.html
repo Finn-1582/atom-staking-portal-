@@ -209,7 +209,7 @@
         const {error}=await client.auth.resetPasswordForEmail(LOGIN_EMAIL,{redirectTo:"https://finn-1582.github.io/atom-staking-portal-/"});
         if(error)throw error;
         message.style.color="#75dfb0";message.textContent="Recovery email sent. Open the newest email and follow its link.";
-      }catch(e){message.textContent="Could not send recovery email. Check the Supabase URL configuration and try again.";}
+      }catch(e){console.error("Password recovery error:",e);message.textContent="Recovery error: "+(e&&e.message?e.message:"Unknown error")+". Check Supabase Authentication logs if this continues.";}
       finally{button.disabled=false;button.textContent="Forgot password?";}
     });
     recoveryForm.addEventListener("submit",async(event)=>{
