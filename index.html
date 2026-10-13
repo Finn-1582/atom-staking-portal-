@@ -40,36 +40,19 @@
   </style>
 </head>
 <body>
-  <section id="login-screen" aria-labelledby="login-title">
-    <form id="login-card">
-      <div class="login-brand"><span>⚛</span> cosmos.stake</div>
-      <h1 id="login-title">Sign in to access staking dashboard</h1>
-      <p>Enter your username and password to open your ATOM staking dashboard.</p>
-      <label for="login-username">Username</label>
-      <input id="login-username" name="username" autocomplete="username" required placeholder="Enter username">
-      <label for="login-password">Password</label>
-      <div class="password-wrap">
-        <input id="login-password" name="password" type="password" autocomplete="current-password" required placeholder="Enter password">
-        <button id="toggle-password" type="button" aria-controls="login-password" aria-pressed="false">Show</button>
-      </div>
-      <button id="login-submit" type="submit">Sign in</button>
-      <button id="forgot-password" class="login-secondary" type="button">Forgot password?</button>
-      <p id="login-message" role="status" aria-live="polite"></p>
-    </form>
-  </section>
-  <section id="recovery-screen" hidden aria-labelledby="recovery-title">
-    <form id="recovery-card">
-      <div class="login-brand"><span>⚛</span> cosmos.stake</div>
-      <h1 id="recovery-title">Set a new password</h1>
-      <p>Choose a new password for your account.</p>
-      <label for="new-password">New password</label>
-      <input id="new-password" type="password" autocomplete="new-password" minlength="8" required placeholder="Enter new password">
-      <label for="confirm-password">Confirm new password</label>
-      <input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required placeholder="Re-enter new password">
-      <button id="recovery-submit" type="submit">Update password</button>
-      <p id="recovery-message" role="status" aria-live="polite"></p>
-    </form>
-  </section>
+ <section id="login-screen" aria-labelledby="login-title">
+  <form id="login-card">
+    <div class="login-brand"><span>⚛</span> cosmos.stake</div>
+    <h1 id="login-title">Access your ATOM staking account</h1>
+    <p>Enter your username to continue.</p>
+    <label for="login-username">Username</label>
+    <input id="login-username" name="username"
+      autocomplete="username" required placeholder="Enter username">
+    <button id="login-submit" type="submit">Continue</button>
+    <p id="login-message" role="status" aria-live="polite"></p>
+  </form>
+</section>
+  
   <div id="site-content" hidden>
   <div class="account-notice">Account figures and staking status should be confirmed against the official on-chain record.</div>
   <div class="app-shell">
