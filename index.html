@@ -85,8 +85,8 @@
         <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
         <div class="hero-content">
           <div class="hero-label"><span class="atom-mark small-mark">⚛</span> TOTAL PLAN ALLOCATION <span class="info-dot" title="Plan allocation amount">i</span></div>
-          <div class="hero-value" id="allocationValue">£68,000.00</div>
-          <div class="hero-meta"><span class="live-dot"></span> GBP-denominated plan <span class="meta-divider">·</span> <span id="atomEquivalent">Calculating ATOM equivalent…</span></div>
+          <div class="hero-value" id="allocationValue">€68,589.36</div>
+          <div class="hero-meta"><span class="live-dot"></span> EUR-denominated plan <span class="meta-divider">·</span> <span id="atomEquivalent">Calculating ATOM equivalent…</span></div>
           <div class="hero-divider"></div>
           <div class="hero-bottom"><div><small>Annual APR</small><strong>21.09%</strong></div><div><small>Planned duration</small><strong>15 days</strong></div><div><small>Unstaking window</small><strong>9 days</strong></div></div>
         </div>
@@ -94,18 +94,18 @@
       </section>
 
       <section class="metric-grid" aria-label="Plan metrics">
-        <article class="metric-card"><div class="metric-top"><span>Estimated reward</span><span class="metric-icon purple">↗</span></div><strong id="rewardValue">£589.36</strong><small>15 days · simple APR estimate</small><div class="metric-foot positive">Based on 365-day year</div></article>
-        <article class="metric-card"><div class="metric-top"><span>Estimated total</span><span class="metric-icon blue">◈</span></div><strong id="totalValue">£68,589.36</strong><small>Allocation + estimated reward</small><div class="metric-foot">Not a verified balance</div></article>
-        <article class="metric-card"><div class="metric-top"><span>ATOM / GBP</span><span class="metric-icon cyan">⚛</span></div><strong id="atomPrice">Loading…</strong><small id="priceChange">Fetching market data</small><div class="metric-foot" id="priceUpdated">Waiting for price feed</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Estimated reward</span><span class="metric-icon purple">↗</span></div><strong id="rewardValue">€594.47</strong><small>15 days · simple APR estimate</small><div class="metric-foot positive">Based on 365-day year</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Estimated total</span><span class="metric-icon blue">◈</span></div><strong id="totalValue">€69,183.83</strong><small>Allocation + estimated reward</small><div class="metric-foot">Not a verified balance</div></article>
+        <article class="metric-card"><div class="metric-top"><span>ATOM / EUR</span><span class="metric-icon cyan">⚛</span></div><strong id="atomPrice">Loading…</strong><small id="priceChange">Fetching market data</small><div class="metric-foot" id="priceUpdated">Waiting for price feed</div></article>
       </section>
 
       <section class="content-grid">
         <article class="panel plan-panel" id="staking">
           <div class="panel-heading"><div><p class="eyebrow">YOUR SCHEDULE</p><h2>Staking timeline</h2></div><span class="tag">15 + 9 days</span></div>
           <div class="timeline">
-            <div class="timeline-item"><div class="timeline-symbol purple-bg">01</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Staking period</strong><span class="phase-tag" id="stakePhase">Scheduled</span></div><p>15 Oct 2026 – 30 Oct 2026</p><small id="stakeStatus">Countdown to staking start</small></div></div>
+            <div class="timeline-item"><div class="timeline-symbol purple-bg">01</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Staking period</strong><span class="phase-tag" id="stakePhase">Scheduled</span></div><p>15 Nov 2026 – 30 Nov 2026</p><small id="stakeStatus">Countdown to staking start</small></div></div>
             <div class="timeline-line"></div>
-            <div class="timeline-item"><div class="timeline-symbol blue-bg">02</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Unstaking window</strong><span class="phase-tag muted-tag" id="unstakePhase">Upcoming</span></div><p>31 Oct 2026 – 8 Nov 2026</p><small id="unstakeStatus">Begins after the planned staking period</small></div></div>
+            <div class="timeline-item"><div class="timeline-symbol blue-bg">02</div><div class="timeline-copy"><div class="timeline-title-row"><strong>Unstaking window</strong><span class="phase-tag muted-tag" id="unstakePhase">Upcoming</span></div><p>1 Dec 2026 – 9 Dec 2026</p><small id="unstakeStatus">Begins after the planned staking period</small></div></div>
           </div>
           <div class="countdown-card"><div class="countdown-head"><div><span class="countdown-kicker" id="countdownKicker">NEXT MILESTONE</span><h3 id="countdownTitle">Time until staking starts</h3></div><span class="clock-icon">◷</span></div><div class="countdown" id="countdown"><div><strong>--</strong><small>Days</small></div><i>:</i><div><strong>--</strong><small>Hours</small></div><i>:</i><div><strong>--</strong><small>Minutes</small></div><i>:</i><div><strong>--</strong><small>Seconds</small></div></div><p id="countdownFoot">Countdown uses the visitor's local device clock.</p></div>
           <div class="policy-note"><span class="policy-icon">!</span><div><strong>Stated unstaking policy</strong><p>If unstaking is not completed before the nine-day window expires, the stated terms describe a half-stake trigger. This interface does not execute or verify any penalty; consult the actual agreement and on-chain implementation.</p></div></div>
@@ -113,7 +113,7 @@
 
         <article class="panel market-panel" id="market">
           <div class="panel-heading"><div><p class="eyebrow">COSMOS HUB</p><h2>ATOM market</h2></div><span class="live-label"><span class="live-dot"></span> Price feed</span></div>
-          <div class="market-price-row"><div><strong id="marketPrice">Loading…</strong><small>ATOM / GBP</small></div><div id="marketChangeBadge" class="change-badge">—</div></div>
+          <div class="market-price-row"><div><strong id="marketPrice">Loading…</strong><small>ATOM / EUR</small></div><div id="marketChangeBadge" class="change-badge">—</div></div>
           <div class="chart-wrap"><div class="chart-y-labels"><span>High</span><span>Price</span><span>Low</span></div><canvas id="priceChart" aria-label="ATOM price chart" role="img"></canvas><div id="chartMessage" class="chart-message">Loading recent market history…</div></div>
           <div class="chart-footer"><span>Recent 7-day trend</span><span id="chartRange">Waiting for data</span></div>
           <div class="market-stats"><div><small>24h high</small><strong id="high24">—</strong></div><div><small>24h low</small><strong id="low24">—</strong></div><div><small>Market</small><strong>Cosmos Hub</strong></div></div>
@@ -123,7 +123,7 @@
 
       <section class="panel activity-panel" id="activity">
         <div class="panel-heading"><div><p class="eyebrow">ACCOUNT LOG</p><h2>Plan activity</h2></div><span class="tag">Plan record</span></div>
-        <div class="activity-row"><div class="activity-symbol purple-bg">◷</div><div class="activity-copy"><strong>Staking schedule configured</strong><small>15-day planned period · starts 15 Oct 2026</small></div><span class="activity-state">Scheduled</span></div>
+        <div class="activity-row"><div class="activity-symbol purple-bg">◷</div><div class="activity-copy"><strong>Staking schedule configured</strong><small>15-day planned period · starts 15 Nov 2026</small></div><span class="activity-state">Scheduled</span></div>
         <div class="activity-row"><div class="activity-symbol blue-bg">↻</div><div class="activity-copy"><strong>Unstaking window planned</strong><small>9-day window after staking period</small></div><span class="activity-state neutral-state">Upcoming</span></div>
         <div class="activity-row"><div class="activity-symbol cyan-bg">⚛</div><div class="activity-copy"><strong>Trustee Wallet withdrawal</strong><small>Open your Trustee Wallet to review available withdrawal options</small></div><span class="activity-state neutral-state">Wallet information</span></div>
       </section>
